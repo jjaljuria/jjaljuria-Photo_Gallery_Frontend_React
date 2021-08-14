@@ -1,0 +1,26 @@
+[
+	{
+		"_id": "1",
+		"idUser": "A",
+		"url": "./img-prueba/img1.png",
+		"position": 0
+	},
+	{
+		"_id": "2",
+		"idUser": "B",
+		"url": "./img-prueba/img2.jpg",
+		"position": 0
+	},
+	{
+		"_id": "3",
+		"idUser": "B",
+		"url": "./img-prueba/img3.png",
+		"position": 0
+	},
+	{
+		"_id": "4",
+		"idUser": "B",
+		"url": "./img-prueba/img4.png",
+		"position": 0
+	}
+]
