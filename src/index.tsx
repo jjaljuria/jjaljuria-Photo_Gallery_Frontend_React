@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, HashRouter } from 'react-router-dom';
 import 'bootswatch/dist/minty/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './css/styles.css';
@@ -16,14 +16,14 @@ import PhotosContainer from './Components/PhotosContainer';
 const App = () => {
 	return (
 		<React.StrictMode>
-			<BrowserRouter>
+			<HashRouter>
 				<main className="container">
 					<Switch>
-						<Route exact path="/login" component={Login}/>
+						<Route exact path="/login" component={Login} />
 						<Route exact path="/:username" component={PhotosContainer} />
 					</Switch>
 				</main>
-			</BrowserRouter>
+			</HashRouter>
 		</React.StrictMode>
 	);
 }
