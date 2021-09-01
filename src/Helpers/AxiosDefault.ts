@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { serverApiDirection } from '../Helpers/ServerApiDirection';
 
 const AxiosDefault = axios.create({
-	baseURL: 'http://localhost:4000',
+	baseURL: serverApiDirection,
 	headers: {
 		'Content-Type': 'application/json'
 	}

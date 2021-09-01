@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useContext } from 'react';
 import { LogIn, CheckedsHandler } from '../Helpers/Contexts';
 import { Photo } from '../Helpers/Types/Photo'
+import { serverApiDirection } from '../Helpers/ServerApiDirection';
 import '../css/styles.css';
 
 function PhotoCard(props: { photo: Photo }) {
@@ -20,7 +21,7 @@ function PhotoCard(props: { photo: Photo }) {
 			{loggedIn.loggedIn ? <div className="position-absolute">
 				<input type="checkbox" name="selectedForDelete" value={props.photo._id} onChange={checkHandler} className="form-check" />
 			</div> : null}
-			<img loading="lazy" src={'http://localhost:4000/' + props.photo.url} alt={props.photo.url} className="img-fluid" />
+			<img loading="lazy" src={`${serverApiDirection}/${props.photo.url}`} alt={props.photo.url} className="img-fluid" />
 		</div>
 	)
 }

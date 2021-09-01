@@ -1,4 +1,5 @@
 import React, { ReactElement, useState, ChangeEvent, FormEvent } from 'react'
+import { serverApiDirection } from '../Helpers/ServerApiDirection';
 
 interface Avatar {
 	image: string
@@ -15,17 +16,17 @@ const Avatar = (props: Avatar) => {
 	const [isShowedAvatarForm, setIsShowedAvatarForm] = useState(false);
 
 	const mouseEnterHandler = (e: any) => {
-		if(!isShowedAvatarForm && props.logged.loggedIn)
+		if (!isShowedAvatarForm && props.logged.loggedIn)
 			setIsHover(true);
 	}
 
 	const mouseLeaveHandler = (e: any) => {
-		if(!isShowedAvatarForm && props.logged.loggedIn)
+		if (!isShowedAvatarForm && props.logged.loggedIn)
 			setIsHover(false);
 	}
 
 	const showAvatarFormHandler = (e: any): void => {
-		if(props.logged.loggedIn){
+		if (props.logged.loggedIn) {
 			setIsHover(false);
 			setIsShowedAvatarForm(true);
 		}
@@ -38,7 +39,7 @@ const Avatar = (props: Avatar) => {
 			const formData = new FormData();
 			formData.append('image', selectedFile);
 			props.onChangeAvatar(formData);
-			
+
 		}
 	}
 
@@ -97,7 +98,7 @@ const Avatar = (props: Avatar) => {
 		errors.forEach(error => alert(error));
 	}
 
-	const closeAvatarFormHandler = (e: any) =>{
+	const closeAvatarFormHandler = (e: any) => {
 		setIsShowedAvatarForm(false);
 	}
 
@@ -106,7 +107,7 @@ const Avatar = (props: Avatar) => {
 			<div className="offset-md-4 col-md-4 text-center p-0
 			position-relative" style={{ display: 'inline-block' }}>
 
-				<img src={`http://localhost:4000/${props.image}`} alt="Avatar" className="img-fluid rounded-circle avatar-size" onMouseEnter={mouseEnterHandler} />
+				<img src={`${serverApiDirection}/${props.image}`} alt="Avatar" className="img-fluid rounded-circle avatar-size" onMouseEnter={mouseEnterHandler} />
 
 
 				{isHover ?
@@ -124,13 +125,13 @@ const Avatar = (props: Avatar) => {
 			<div className="col-12 col-md-4 offset-md-4 text-center">
 				{props.children}
 			</div>
-			{isShowedAvatarForm ? 
-			<form className="col-md-4 border border-dark p-1 overflow-hidden offset-md-4" onSubmit={submitHandler}>
-				<input type="file" name="avatar" className="m-1" onChange={changeHandler} />
-				<button type="submit" className="btn btn-primary mr-1">Guardar</button>
-				<button onClick={closeAvatarFormHandler} className="btn btn-secondary">cancelar</button>
-			</form>
-			: ''}
+			{isShowedAvatarForm ?
+				<form className="col-md-4 border border-dark p-1 overflow-hidden offset-md-4" onSubmit={submitHandler}>
+					<input type="file" name="avatar" className="m-1" onChange={changeHandler} />
+					<button type="submit" className="btn btn-primary mr-1">Guardar</button>
+					<button onClick={closeAvatarFormHandler} className="btn btn-secondary">cancelar</button>
+				</form>
+				: ''}
 
 		</section>
 	)
