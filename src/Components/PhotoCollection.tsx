@@ -4,7 +4,6 @@ import PhotoCard from './PhotoCard';
 
 
 const PhotoCollection = (props: { photos: Photo[] }) => {
-	
 
 	const photoCards = props.photos.map( photo =>{
 		return (

@@ -13,6 +13,7 @@ import DeleteButtom from './DeleteButton';
 interface Param {
 	username: string;
 }
+
 function PhotosContainer() {
 	const params = useParams<Param>();
 	const [avatar, setAvatar] = useState('');
@@ -25,7 +26,6 @@ function PhotosContainer() {
 		const res = await AvatarService.getAvatar(params.username);
 		setAvatar(res);
 	}
-
 
 	const loadPhotos = async () => {
 		const res = await PhotoService.getPhotos(params.username);
@@ -75,7 +75,7 @@ function PhotosContainer() {
 		loadPhotos();
 	}
 
-	const changeImageAvatar = async (avatar: FormData)=>{
+	const changeImageAvatar = async (avatar: FormData) => {
 		const res = await AvatarService.updateAvatar(avatar);
 		console.log(res);
 		loadAvatar();
@@ -87,6 +87,7 @@ function PhotosContainer() {
 		verifyLogin();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
+	
 
 	return (
 		<div className="mt-4">
@@ -97,7 +98,7 @@ function PhotosContainer() {
 					</Avatar>
 					{logged.loggedIn ?
 
-						<><DeleteButtom onDelete={deletePhotos}/>
+						<><DeleteButtom onDelete={deletePhotos} />
 							<BarSavePhoto savePhoto={savePhoto} logged={logged} progress={progress} /></>
 						: ''}
 					<CheckedsHandler.Provider value={selectedHandlers}>

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter, Route, Switch, HashRouter } from 'react-router-dom';
+import { Route, Switch, HashRouter } from 'react-router-dom';
 import 'bootswatch/dist/minty/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './css/styles.css';

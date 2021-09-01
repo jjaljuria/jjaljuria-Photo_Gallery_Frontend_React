@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useContext, useState } from 'react';
+import React, { ChangeEvent, useContext } from 'react';
 import { LogIn, CheckedsHandler } from '../Helpers/Contexts';
 import { Photo } from '../Helpers/Types/Photo'
 import '../css/styles.css';
@@ -6,10 +6,10 @@ import '../css/styles.css';
 function PhotoCard(props: { photo: Photo }) {
 	const loggedIn = useContext(LogIn);
 	const checksHandlers = useContext(CheckedsHandler);
-	const checkHandler = (e: ChangeEvent<HTMLInputElement>) =>{
-		if(e.target.checked){
+	const checkHandler = (e: ChangeEvent<HTMLInputElement>) => {
+		if (e.target.checked) {
 			checksHandlers.checked(e.target.value);
-		}else{
+		} else {
 			checksHandlers.unchecked(e.target.value);
 		}
 	}

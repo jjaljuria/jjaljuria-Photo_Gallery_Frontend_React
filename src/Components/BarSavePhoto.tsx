@@ -7,11 +7,9 @@ interface Props {
 }
 
 const BarSavePhoto = (props: Props) => {
-	const porcentage = props.progress;
+
 	const [isFilePicked, setIsFilePicked] = useState(false);
 	const [selectedFile, setSelectedFile] = useState<any>();
-
-
 
 	const savePhotoHandler = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
