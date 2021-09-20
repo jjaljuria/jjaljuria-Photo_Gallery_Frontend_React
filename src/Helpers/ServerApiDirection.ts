@@ -1,1 +1,2 @@
-export const serverApiDirection = 'https://jjaljuria-photo-gallery-api.herokuapp.com';
+export const serverApiDirection = process.env.REACT_APP_SERVER_API || 'http://localhost:4000';
+console.log(serverApiDirection);
