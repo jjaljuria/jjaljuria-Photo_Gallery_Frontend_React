@@ -8,7 +8,6 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './css/styles.css';
 import './css/styles.css.map';
 
-
 // Components
 import Login from './Components/Login';
 import PhotosContainer from './Components/PhotosContainer';
