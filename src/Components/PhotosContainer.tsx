@@ -87,7 +87,8 @@ function PhotosContainer() {
 		verifyLogin();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-	
+	console.log(logged.loggedIn);
+	console.log(LogIn);
 
 	return (
 		<div className="mt-4">
