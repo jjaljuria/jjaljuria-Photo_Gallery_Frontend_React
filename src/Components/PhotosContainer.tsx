@@ -51,6 +51,7 @@ function PhotosContainer() {
 	const verifyLogin = async () => {
 		const res = await LoginService.verifyLogin();
 		setLogged(res);
+		console.log(res);
 	}
 
 	const selectedPhotoHandler = (id: string) => {
