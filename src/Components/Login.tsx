@@ -3,8 +3,8 @@ import * as UserService from '../Services/LoginService';
 //import { useHistory } from 'react-router-dom';
 
 type InputChange = ChangeEvent<HTMLInputElement>;
-interface Params{
-	hola:string;
+interface Params {
+	hola: string;
 }
 
 export default (props: any) => {
@@ -20,11 +20,12 @@ export default (props: any) => {
 		}
 
 		UserService.Login(user)
-		.then(response =>{
-			console.log(response);
-		}).catch(err =>{
-			console.log(err);
-		});
+			.then(response => {
+				window.localStorage.setItem('token', response.token);
+				console.log('login ok');
+			}).catch(err => {
+				console.log(err);
+			});
 	}
 
 	const handlerInputChange = (e: InputChange) => {
@@ -37,11 +38,11 @@ export default (props: any) => {
 		}
 	}
 
-	
+
 	const fetchStatus = async () => {
 		const status = await UserService.verifyLogin();
 		console.log(status);
-		if(status.loggedIn){
+		if (status.loggedIn) {
 			// history.push('/');
 			console.log(status);
 		}
@@ -49,7 +50,7 @@ export default (props: any) => {
 
 	useEffect(() => {
 		fetchStatus();
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
 	return (
