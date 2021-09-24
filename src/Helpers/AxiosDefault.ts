@@ -4,7 +4,8 @@ import { serverApiDirection } from '../Helpers/ServerApiDirection';
 const AxiosDefault = axios.create({
 	baseURL: serverApiDirection,
 	headers: {
-		'Content-Type': 'application/json'
+		'Content-Type': 'application/json',
+		"Access-Control-Allow-Origin": "*"
 	}
 });
 export default AxiosDefault;
