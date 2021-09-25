@@ -9,6 +9,7 @@ export const getPhotos = async (username: string) => {
 export const savePhotos = (photo: FormData, uploadProgress: any) => {
 
 	return axios.post(`/photos`, photo, {
+		withCredentials: true,
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded',
 		}, onUploadProgress: uploadProgress
