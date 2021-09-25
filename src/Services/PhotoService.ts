@@ -9,11 +9,11 @@ export const getPhotos = async (username: string) => {
 export const savePhotos = (photo: FormData, uploadProgress: any) => {
 	return axios.post(`/photos`, photo, {
 		headers: {
-			'Content-Type': 'multipart/form-data'
+			'Content-Type': 'application/x-www-form-urlencoded'
 		}, onUploadProgress: uploadProgress
 	});
 }
 
-export const deletePhotos = async (checkedIds: string[]) =>{
-	return await axios.delete('/photos',{data: checkedIds});
+export const deletePhotos = async (checkedIds: string[]) => {
+	return await axios.delete('/photos', { data: checkedIds });
 }
