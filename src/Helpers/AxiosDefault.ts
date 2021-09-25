@@ -5,7 +5,6 @@ const AxiosDefault = axios.create({
 	baseURL: serverApiDirection,
 	headers: {
 		'Content-Type': 'application/json',
-		"Access-Control-Allow-Origin": "*"
 	}
 });
 export default AxiosDefault;
