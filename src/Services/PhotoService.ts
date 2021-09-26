@@ -1,6 +1,6 @@
-import axios from '../Helpers/AxiosDefault'; //axios configurado por mi jjaljuria
+import axios from '../Helpers/AxiosDefault';
+import axiosDefault from 'axios'; //axios configurado por mi jjaljuria
 axios.defaults.withCredentials = true;
-import axiosDefault from 'axios';
 
 export const getPhotos = async (username: string) => {
 	return await (await axios.get(`photos/${username}`)).data;
