@@ -1,4 +1,6 @@
 import axios from '../Helpers/AxiosDefault'; //axios configurado por mi jjaljuria
+import {useLocation} from 'react-router-dom';
+
 axios.defaults.withCredentials = true;
 
 export const Login = async (user: { email: string, password: string }) => {
@@ -13,4 +15,9 @@ export const verifyLogin = async () => {
 	return await (await axios.get(`/user/login`, {
 		headers: { 'x-access-token': token }
 	})).data;
+}
+
+export const Logout = async () =>{
+	window.localStorage.removeItem('token');
+	window.location.reload();
 }

@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom';
 import BarSavePhoto from './BarSavePhoto';
 import { LogIn, CheckedsHandler } from '../Helpers/Contexts';
 import DeleteButtom from './DeleteButton';
+import Logout from './Logout';
 
 interface Param {
 	username: string;
@@ -92,15 +93,17 @@ function PhotosContainer() {
 
 	return (
 		<div className="mt-4">
+			{logged.loggedIn ? <Logout /> : ''}
 			{avatar ?
 				<div>
 					<Avatar image={avatar} onChangeAvatar={changeImageAvatar} logged={logged}>
 						<h3>{params.username}</h3>
 					</Avatar>
 					{logged.loggedIn ?
-
-						<><DeleteButtom onDelete={deletePhotos} />
-							<BarSavePhoto savePhoto={savePhoto} logged={logged} progress={progress} /></>
+						<>
+							<DeleteButtom onDelete={deletePhotos} />
+							<BarSavePhoto savePhoto={savePhoto} logged={logged} progress={progress} />
+						</>
 						: ''}
 					<CheckedsHandler.Provider value={selectedHandlers}>
 						<LogIn.Provider value={logged}>
