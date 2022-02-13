@@ -1,6 +1,6 @@
 import React, { FormEvent, useState, ChangeEvent, useEffect } from 'react'
 import * as UserService from '../Services/LoginService';
-//import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 type InputChange = ChangeEvent<HTMLInputElement>;
 interface Params {
@@ -10,7 +10,7 @@ interface Params {
 export default (props: any) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	//const history = useHistory();
+	const history = useHistory();
 
 	const handlerSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -22,7 +22,7 @@ export default (props: any) => {
 		UserService.Login(user)
 			.then(response => {
 				window.localStorage.setItem('token', response.token);
-				console.log('login ok');
+				history.goBack();
 			}).catch(err => {
 				console.log(err);
 			});
