@@ -17,6 +17,7 @@ interface Param {
 
 function PhotosContainer() {
 	const params = useParams<Param>();
+	const [username, setUsername] = useState('');
 	const [avatar, setAvatar] = useState('');
 	const [photos, setPhotos] = useState(Array<Photo>());
 	const [logged, setLogged] = useState({ loggedIn: false });
@@ -87,9 +88,9 @@ function PhotosContainer() {
 		loadAvatar();
 		loadPhotos();
 		verifyLogin();
+		setUsername(params.username);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-	console.log(logged);
 
 	return (
 		<div className="mt-4">
@@ -97,7 +98,7 @@ function PhotosContainer() {
 			{avatar ?
 				<div>
 					<Avatar image={avatar} onChangeAvatar={changeImageAvatar} logged={logged}>
-						<h3>{params.username}</h3>
+						<h3>{username}</h3>
 					</Avatar>
 					{logged.loggedIn ?
 						<>

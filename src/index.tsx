@@ -11,19 +11,25 @@ import './css/styles.css.map';
 // Components
 import Login from './Components/Login';
 import PhotosContainer from './Components/PhotosContainer';
+import Index from './Components/Index';
+import Layout from './Components/Layout'
 
 const App = () => {
 	return (
 		<React.StrictMode>
 			<HashRouter>
-				<main className="container">
-					<Switch>
-						<Route exact path="/login" component={Login} />
-						<Route exact path="/:username" component={PhotosContainer} />
-					</Switch>
-				</main>
+				<Layout>
+					<main className="container">
+						<Switch>
+							<Route exact path="/" component={Index} />
+							<Route exact path="/login" component={Login} />
+							<Route exact path="/:username" component={PhotosContainer} />
+						</Switch>
+					</main>
+				</Layout>
 			</HashRouter>
 		</React.StrictMode>
+
 	);
 }
 
