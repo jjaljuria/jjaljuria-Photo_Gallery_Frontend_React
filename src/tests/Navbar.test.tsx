@@ -1,7 +1,6 @@
 /* global jest describe beforeEach afterEach it expect */
 import { cleanup, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { debug } from 'console'
 import React from 'react'
 import Navbar from '../Components/Navbar'
 import { LogIn } from '../Helpers/Contexts'

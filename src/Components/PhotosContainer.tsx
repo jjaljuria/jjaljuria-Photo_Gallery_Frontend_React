@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import Avatar from './Avatar'
 import PhotoCollection from './PhotoCollection'
 import * as PhotoService from '../Services/PhotoService'
@@ -7,13 +7,13 @@ import { Photo } from '../Helpers/Types/Photo'
 import { useParams } from 'react-router-dom'
 import BarSavePhoto from './BarSavePhoto'
 import DeleteButtom from './DeleteButton'
-import { CheckedsHandler } from '../Helpers/Contexts'
+import { CheckedsHandler, LogIn } from '../Helpers/Contexts'
 
-function PhotosContainer ({ loggedIn } : {loggedIn: boolean}) {
+function PhotosContainer () {
 	const params = useParams<{username:string}>()
-
+	const { loggedIn } = useContext(LogIn)
 	const [username, setUsername] = useState('')
-	const [avatar, setAvatar] = useState('')
+	const [avatarURL, setAvatarURL] = useState('')
 	// eslint-disable-next-line no-array-constructor
 	const [photos, setPhotos] = useState(Array<Photo>())
 	const [progress, setProgress] = useState(0)
@@ -22,7 +22,7 @@ function PhotosContainer ({ loggedIn } : {loggedIn: boolean}) {
 
 	const loadAvatar = async () => {
 		const res = await AvatarService.getAvatar(params.username ?? '')
-		setAvatar(res)
+		setAvatarURL(res)
 	}
 
 	const loadPhotos = async () => {
@@ -83,9 +83,9 @@ function PhotosContainer ({ loggedIn } : {loggedIn: boolean}) {
 	return (
 		<div className="mt-4">
 
-			{avatar
+			{avatarURL
 				? <div>
-					<Avatar image={avatar} onChangeAvatar={changeImageAvatar} logged={{ loggedIn }}>
+					<Avatar image={avatarURL} onChangeAvatar={changeImageAvatar} logged={{ loggedIn }}>
 						<h3>{username}</h3>
 					</Avatar>
 					{loggedIn
