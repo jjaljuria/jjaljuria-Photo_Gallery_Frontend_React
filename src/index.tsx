@@ -43,7 +43,7 @@ const App = () => {
 							<Routes>
 								<Route path="/" element={<Index/>} />
 								<Route path="/login" element={<Login />} />
-								<Route path="/:username" element={<PhotosContainer loggedIn={loggedIn.loggedIn} />} />
+								<Route path="/:username" element={<PhotosContainer />} />
 							</Routes>
 						</main>
 					</Layout>

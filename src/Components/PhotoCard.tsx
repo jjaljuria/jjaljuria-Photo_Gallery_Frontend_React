@@ -5,7 +5,7 @@ import { serverApiDirection } from '../Helpers/ServerApiDirection'
 import '../css/styles.css'
 
 function PhotoCard (props: { photo: Photo }) {
-	const loggedIn = useContext(LogIn)
+	const { loggedIn } = useContext(LogIn)
 	const checksHandlers = useContext(CheckedsHandler)
 	const checkHandler = (e: ChangeEvent<HTMLInputElement>) => {
 		if (e.target.checked) {
@@ -18,9 +18,9 @@ function PhotoCard (props: { photo: Photo }) {
 	return (
 
 		<div className="photo-card">
-			{loggedIn.loggedIn
+			{loggedIn
 				? <div className="position-absolute">
-					<input type="checkbox" name="selectedForDelete" value={props.photo._id} onChange={checkHandler} className="form-check" />
+					<input type="checkbox" name="selectedForDelete" value={props.photo._id} onChange={checkHandler} className="form-check" data-testid="check"/>
 				</div>
 				: null}
 			<img loading="lazy" src={`${serverApiDirection}/${props.photo.url}`} alt={props.photo.url} className="img-fluid" />

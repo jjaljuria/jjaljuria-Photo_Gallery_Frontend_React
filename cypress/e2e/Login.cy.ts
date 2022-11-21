@@ -44,5 +44,17 @@ describe('Login', () => {
 			cy.contains('Log out').click()
 			cy.contains('Login')
 		})
+
+		it('should user back at user page', () => {
+			cy.visit('localhost:3000/#/jjaljuria')
+			cy.contains('Login').click()
+
+			cy.get('[name="email"]').type('josejavieral13@gmail.com')
+			cy.get('[name="password"]').type('12345')
+
+			cy.contains('Ingresar').click()
+			cy.contains('Log out')
+			cy.contains('jjaljuria')
+		})
 	})
 })

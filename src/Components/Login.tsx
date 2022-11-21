@@ -21,6 +21,7 @@ const Login = () => {
 		UserService.Login(user)
 			.then(response => {
 				window.localStorage.setItem('token', response.token)
+				setLoggedIn(true)
 				navigate(-1)
 			}).catch(err => {
 				console.log(err)
