@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 
 import * as serviceWorker from './serviceWorker'
-import { Route, Routes, HashRouter } from 'react-router-dom'
+import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import 'bootstrap/dist/js/bootstrap.esm'
 import 'bootswatch/dist/minty/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.css'
@@ -36,7 +36,7 @@ const App = () => {
 
 	return (
 		<React.StrictMode>
-			<HashRouter>
+			<BrowserRouter>
 				<LogIn.Provider value={stateLoggedIn}>
 					<Layout>
 						<main className="container">
@@ -48,7 +48,7 @@ const App = () => {
 						</main>
 					</Layout>
 				</LogIn.Provider>
-			</HashRouter>
+			</BrowserRouter>
 		</React.StrictMode>
 
 	)

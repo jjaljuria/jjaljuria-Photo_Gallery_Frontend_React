@@ -17,5 +17,4 @@ export const verifyLogin = async () => {
 
 export const Logout = async () => {
 	window.localStorage.removeItem('token')
-	window.location.reload()
 }
