@@ -36,6 +36,9 @@ const Avatar = (props: AvatarProps) => {
 			const formData = new FormData()
 			formData.append('image', selectedFile)
 			props.onChangeAvatar(formData)
+			setIsFilePicked(false)
+			setSelectedFile(null)
+			setIsShowedAvatarForm(!isShowedAvatarForm)
 		}
 	}
 
@@ -117,7 +120,7 @@ const Avatar = (props: AvatarProps) => {
 			{isShowedAvatarForm
 				? <form className="col-md-4 border border-dark p-1 overflow-hidden offset-md-4" onSubmit={submitHandler}>
 					<input type="file" name="avatar" className="m-1" onChange={changeHandler} />
-					<button type="submit" className="btn btn-primary mr-1">Guardar</button>
+					<button type="submit" className="btn btn-primary mr-1" disabled={!isFilePicked}>Guardar</button>
 					<button onClick={closeAvatarFormHandler} className="btn btn-secondary">cancelar</button>
 				</form>
 				: ''}
